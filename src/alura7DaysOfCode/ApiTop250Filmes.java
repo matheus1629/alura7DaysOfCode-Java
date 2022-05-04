@@ -30,43 +30,27 @@ public class ApiTop250Filmes {
 		// parâmetro para substring()
 		int finalSubString = json.lastIndexOf("]");
 		int comecoSubString = json.indexOf("{", 1);
-
 		String jsonInteiro = json.substring(comecoSubString, finalSubString);
 		
-//		System.out.println(jsonInteiro);
-	
-//		String jsonParaSplit = jsonInteiro.replace("},{", "}gambiarra{");
-//		String[] jsonArray = jsonParaSplit.split("gambiarra");
-//		
-//		List<String> titles = new ArrayList<>();
-//		List<String> urlImages = new ArrayList<>();
-//		List<String> rating = new ArrayList<>();
-//		List<String> years = new ArrayList<>();
-//		
-//		for (String string : jsonArray) {
-//			String[] atributos = string.split("\"{1},\"{1}");
-//			titles.add(atributos[2]);
-//			urlImages.add(atributos[6]);
-//			rating.add(atributos[8]);
-//			years.add(atributos[4]);
-//		}
+
+		// json para Array
+		String jsonParaSplit = jsonInteiro.replace("},{", "}gambiarra{");
+		String[] jsonArray = jsonParaSplit.split("gambiarra");
 		
+		List<String> titles = new ArrayList<>();
+		List<String> urlImages = new ArrayList<>();
+		List<String> rating = new ArrayList<>();
+		List<String> years = new ArrayList<>();
 		
-//		String [] atributos = jsonArray[1].split("\"{1},\"{1}");
+		// adicionando os atributos dos filmes nas respectivas listas
+		for (String string : jsonArray) {
+			String[] atributos = string.split("\"{1},\"{1}");
+			titles.add(atributos[2]);
+			urlImages.add(atributos[6]);
+			rating.add(atributos[8]);
+			years.add(atributos[4]);
+		}
 			
 	}
 
 }
-
-
-/*
-*substring(), split() e replace()  \ |
-*Matcher e Pattern  regex
-*Com o resultado do parseamento, você deverá criar diferentes listas, 
-*cada uma com um atributo do filme. Uma lista com os títulos, outra com a URL da imagem e assim por diante. 
-*
-*1º EXTRAIR O json inteiro [ ]
-*2º split para separar os filmes
-*3º separar cada informação do filme String [] atributos = jsonFilmes.split(“\”,”\”);
-*4º pegar o atributo na posição correta usando métodos da classe String e guardá-lo em uma lista. 
-*/
