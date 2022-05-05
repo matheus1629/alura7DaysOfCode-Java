@@ -37,19 +37,16 @@ public class ApiTop250Filmes {
 		String jsonParaSplit = jsonInteiro.replace("},{", "}gambiarra{");
 		String[] jsonArray = jsonParaSplit.split("gambiarra");
 		
-		List<String> titles = new ArrayList<>();
-		List<String> urlImages = new ArrayList<>();
-		List<String> rating = new ArrayList<>();
-		List<String> years = new ArrayList<>();
+		List<FilmesLista> filmes = new ArrayList<>();
 		
-		// adicionando os atributos dos filmes nas respectivas listas
+		// instanciando objeto da classe FilmesListas e adicionando a lista
 		for (String string : jsonArray) {
 			String[] atributos = string.split("\"{1},\"{1}");
-			titles.add(atributos[2]);
-			urlImages.add(atributos[6]);
-			rating.add(atributos[8]);
-			years.add(atributos[4]);
+			FilmesLista objetoFilmes = new FilmesLista(atributos[2], atributos[5], atributos[7], atributos[4]);
+			filmes.add(objetoFilmes);
 		}
+		
+		filmes.forEach(System.out::println);	
 			
 	}
 
