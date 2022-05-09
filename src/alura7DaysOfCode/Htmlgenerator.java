@@ -37,7 +37,7 @@ class HtmlGenerator {
 			</div>
 			""";
 			
-			writer.println(String.format(div, filme.title(), filme.url(), filme.title(), filme.rating(), filme.year()));
+			writer.println(String.format(div, filme.title(), filme.urlImage(), filme.title(), filme.rating(), filme.year()));
 		}
 
 				

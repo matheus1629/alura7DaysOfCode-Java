@@ -1,7 +1,6 @@
 package alura7DaysOfCode;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ApiTop250Filmes {

@@ -1,6 +1,6 @@
 package alura7DaysOfCode;
 
-public class FilmesLista {
+public class FilmesLista implements Content {
 
 	private String title;
 	private String url;
@@ -18,31 +18,36 @@ public class FilmesLista {
 		this.year = year;
 	}
 	
-	
+	@Override
 	public String title() {
 		titleSplit = this.title.split("\"");
 		return this.titleSplit[2];
 	}
 	
-	public String url() {
-		urlSplit = this.url.split("\"");
-		return this.urlSplit[2];
-	}
-	
+	@Override
 	public String rating() {
 		ratingSplit = this.rating.replace("imDbRating\":\"", " ");
 		return this.ratingSplit;
 	}
 	
+	@Override
 	public String year() {
 		yearSplit = this.year.split("\"");
 		return this.yearSplit[2];
 	}
 
+	@Override
+	public String urlImage() {
+		urlSplit = this.url.split("\"");
+		return this.urlSplit[2];
+	}
 	
 	@Override
 	public String toString() {
 		return ("Título: " + this.title + " | Nota: " + this.rating + " | Ano: " + this.year + " | URL: " + this.url);
 	}
+
+
+
 	
 }

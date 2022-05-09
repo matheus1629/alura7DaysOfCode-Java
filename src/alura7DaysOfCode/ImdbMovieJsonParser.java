@@ -3,7 +3,7 @@ package alura7DaysOfCode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImdbMovieJsonParser {
+public class ImdbMovieJsonParser implements JsonParser{
 
 	private String json;
 	
@@ -29,11 +29,9 @@ public class ImdbMovieJsonParser {
 		for (String string : jsonArray) {
 			String[] atributos = string.split("\"{1},\"{1}");
 			FilmesLista objetoFilmes = new FilmesLista(atributos[2], atributos[5], atributos[7], atributos[4]);
-			
 			filmes.add(objetoFilmes);
 		}
 		return filmes;
-		
 	}
 	
 	
