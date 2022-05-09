@@ -1,6 +1,6 @@
 package alura7DaysOfCode;
 
-public class FilmesLista implements Content {
+public class FilmesLista implements Content, Comparable<Content>{
 
 	private String title;
 	private String url;
@@ -47,7 +47,9 @@ public class FilmesLista implements Content {
 		return ("Título: " + this.title + " | Nota: " + this.rating + " | Ano: " + this.year + " | URL: " + this.url);
 	}
 
+	@Override
+	public int compareTo(Content outro) {
+		return this.rating().compareTo(outro.rating());
+	}
 
-
-	
 }
